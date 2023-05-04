@@ -18,8 +18,6 @@ Se utilizo una base de datos basada en un hipotetico caso de una compaña de ven
 
  * 10 Ciudades con menos usuarios.
 
- * Top 2 de empleados que generaron un total mayor de ventas y el monto total de sus ventas.
-
  * Ticket promedio por cliente en $.
 
 
