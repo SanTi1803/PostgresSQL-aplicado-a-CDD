@@ -64,21 +64,6 @@ GROUP BY identificador_ciudad
 ORDER by CUC, identificador_ciudad;
 
 
--- Top 2 de empleados que generaron un total mayor de ventas y el monto total de sus ventas
-WITH top_2_empleados AS (
-select	distinct(r.empleado_id) empleados, e.nombre, 
-SUM(p.precio_renta) OVER(PARTITION BY r.empleado_id) AS suma
-from  empleados AS e
-INNER JOIN rentas AS r USING(empleado_id)
-INNER JOIN inventarios AS i USING(inventario_id)
-INNER JOIN peliculas AS p USING(pelicula_id)
-group by 
-r.empleado_id,
-e.nombre,
-p.precio_renta
-order by suma DESC)
-SELECT top_2_empleados.empleados, top_2_empleados.suma * tipos_cambio.cambio_usd as monto_epleado from top_2_empleados, tipos_cambio where tipos_cambio.codigo = 'MXN';
-
 
 
 -- Ticket promedio por cliente en $.
